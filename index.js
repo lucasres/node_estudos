@@ -1,16 +1,11 @@
-//call the module
-var rect = require('./rectangle');
+var express = require('express');
 
-function solveRect(l,b) {
-    if (l <= 0 || b <= 0) {
-        console.log(`L or B must be great of 0`);
-    } else {
-        let a = rect.area(l,b);
-        let p = rect.perimeter(l,b);
-        console.log(`Area:${a} | perimeter:${p}`);
-    }
-}
+var app = express();
 
-//call function
-solveRect(10,2);
-solveRect(0,2);
+app.get('/',function(req,res){
+    res.send('Hello word');
+});
+
+app.listen('3000',function(){
+    console.log('Server listening on 3000 port');
+});
