@@ -3,7 +3,7 @@ var express = require('express');
 var app = express();
 
 app.get('/',function(req,res){
-    res.send('Hello word');
+    res.send('Lorem');
 });
 
 app.listen('3000',function(){
