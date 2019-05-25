@@ -8,13 +8,12 @@ services:
       - ./:/app/
     ports:
       - "3000:3000"
+    depends_on:
+      - mongo
   mongo:
     image: mongo
     restart: always
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: root
     ports:
-      - 27017:27017
+      - 27018:27017
     volumes:
       - /db_mongo/data/db
