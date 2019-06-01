@@ -11,21 +11,8 @@ try{
     console.log('deu erro na conecao com o mongodb');
     console.log(e);
 }
-//registra o model
-require('./src/models/Product');
 
-const Product = mongoose.model('Product');
-
-app.get('/',function(req,res){
-    Product.create({
-        title:'a',
-        description:'b',
-        url:'c'
-    });
-    console.log('criou');
-    
-    return res.send('First Nod e Server heheh');
-});
+app.use('/api',require('./src/router'));
 
 app.listen('3000',function(){
     console.log('Server listening on 3000 port');
