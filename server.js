@@ -2,9 +2,10 @@ var express = require('express');
 var mongoose = require('mongoose');
 
 var app = express();
-
+//permite que a aplicacao user json
+app.use(express.json());
 //config db
-console.log('inicio conecao');
+console.log('inicio conecao com o mongodb');
 try{
     db = mongoose.connect('mongodb://mongo:27017/nodeapi',{ useNewUrlParser: true });
 } catch(e) {
