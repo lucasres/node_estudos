@@ -4,8 +4,9 @@ const Product = require('../models/Product');
 
 module.exports = {
     async index(req,res) {
+        const { page = 1 } = req.query;
         //recupera todos os produtos
-        const products = await Product.find();
+        const products = await Product.paginate({},{page,limit:10});
         //responde tudo
         return res.json(products);
     },
